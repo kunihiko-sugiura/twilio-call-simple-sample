@@ -22,6 +22,10 @@ function fnReady(){
 
                 Twilio.Device.ready(function (device) {
                     console.log('Twilio.Device.ready');
+
+                    // ** Call
+                    console.log('Calling ' + params.To + '...');
+                    Twilio.Device.connect(params);
                 });
 
                 Twilio.Device.error(function (error) {
@@ -56,8 +60,6 @@ function fnReady(){
         var params = {
             To: document.getElementById('call-to').value
         };
-        console.log('Calling ' + params.To + '...');
-        Twilio.Device.connect(params);
     };
     document.getElementById('btn-hangup').onclick = function () {
         console.log('Hanging up');
